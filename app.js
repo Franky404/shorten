@@ -19,6 +19,7 @@ app.get('/', function(req, res){
 });
 app.post('/api/shorten', function(req, res){
   var longUrl = req.body.url;
+    if(!isURL(LongUrl)) return
     var shortUrl = shortid.generate();
     Url.findOne({long_url: longUrl}, function (err, doc){
       if (doc){

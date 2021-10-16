@@ -62,7 +62,7 @@ app.post('/api/custom', function(req, res){
   }  
   });
   })
-app.get('/api', function(req, res){
+app.get('/', function(req, res){
   var longUrl = req.query.link;
   if(!longUrl) return res.json({ pesan: 'masukkan Parameter URL' })
     var shortUrl = shortid.generate();
@@ -70,7 +70,12 @@ app.get('/api', function(req, res){
       if (doc){
         shortUrl = config.webhost + doc.id;
         console.log(doc.id);
-        res.send({'link': shortUrl});
+        res.send({
+             'creator': '@Franky',
+             'link': shortUrl,
+             'host': config.webhost,
+             'short': doc.id
+              });
       } else {
         var newUrl = Url({
           long_url: longUrl,

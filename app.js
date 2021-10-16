@@ -17,6 +17,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname, 'views/index.html'));
 });
+app.get('/cek', function(req, res){
+res.json({ Url })
+})
 app.post('/api/shorten', function(req, res){
   var longUrl = req.body.url;
     var shortUrl = shortid.generate();

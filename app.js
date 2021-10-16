@@ -70,7 +70,7 @@ app.get('/api', function(req, res){
       if (doc){
         shortUrl = config.webhost + doc.id;
         console.log(doc.id);
-        res.send({'shortUrl': shortUrl,success:1});
+        res.send({'link': shortUrl,success:1});
       } else {
         var newUrl = Url({
           long_url: longUrl,
@@ -82,7 +82,7 @@ app.get('/api', function(req, res){
           }
           shortUrl = config.webhost + newUrl.id;
           console.log(newUrl.id);
-          res.send({'shortUrl': shortUrl,success:1});
+          res.send({'link': shortUrl,success:1});
         });
       }
     });

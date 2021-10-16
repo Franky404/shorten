@@ -62,7 +62,7 @@ app.post('/api/custom', function(req, res){
   }  
   });
   })
-app.get('/', function(req, res){
+app.get('/api', function(req, res){
   var longUrl = req.query.link;
   if(!longUrl) return res.json({ pesan: 'masukkan Parameter URL' })
     var shortUrl = shortid.generate();

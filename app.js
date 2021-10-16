@@ -62,6 +62,31 @@ app.post('/api/custom', function(req, res){
   }  
   });
   })
+app.get('/api', function(req, res){
+  var longUrl = req.query.link;
+    var shortUrl = shortid.generate();
+    Url.findOne({long_url: longUrl}, function (err, doc){
+      if (doc){
+        shortUrl = config.webhost + doc.id;
+        console.log(doc.id);
+        res.send({'shortUrl': shortUrl,success:1});
+      } else {
+        var newUrl = Url({
+          long_url: longUrl,
+          id:shortUrl
+        });
+        newUrl.save(function(err) {
+          if (err){
+            console.log(err);
+          }
+          shortUrl = config.webhost + newUrl.id;
+          console.log(newUrl.id);
+          res.send({'shortUrl': shortUrl,success:1});
+        });
+      }
+    });
+});
+
 app.get('/:encoded_id', function(req, res){
   var id1 = req.params.encoded_id;
   console.log(id1)

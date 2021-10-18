@@ -22,7 +22,7 @@ res.json({ Url })
 })
 app.post('/api/shorten', function(req, res){
   var longUrl = req.body.url;
-     if(!longUrl) return res.json({ pesan : 'erorr' })
+     /////////////if(!longUrl) return res.json({ pesan : 'erorr' })
     var shortUrl = shortid.generate();
     Url.findOne({long_url: longUrl}, function (err, doc){
       if (doc){

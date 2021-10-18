@@ -10,17 +10,16 @@ $('.btn-shorten').on('click', function(){
     type: 'POST',
     dataType: 'JSON',
     data: {url: $('#url-field').val()},
-    }else{
-          alert("Enter Valid Link");
-        }
-    success: function(data){
-        
+    console.log(data)
+    success: function(data){   
         if(data.success){
           $('#link').show();
           $('#shorturl').val(data.shortUrl);
           shortUrl=data.shortUrl;
           $("#showonlink").show(); 
-          
+              }else{
+          alert("Enter Valid Link");
+        }
     }
   });});
 

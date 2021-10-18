@@ -10,14 +10,13 @@ $('.btn-shorten').on('click', function(){
     type: 'POST',
     dataType: 'JSON',
     data: {url: $('#url-field').val()},
-    console.log(data)
     success: function(data){   
         if(data.success){
           $('#link').show();
           $('#shorturl').val(data.shortUrl);
           shortUrl=data.shortUrl;
           $("#showonlink").show(); 
-              }else{
+          }else{
           alert("Enter Valid Link");
         }
     }

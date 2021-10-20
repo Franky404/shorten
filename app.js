@@ -75,10 +75,7 @@ app.get('/api', function(req, res){
         shortUrl = config.webhost + doc.id;
         console.log(doc.id);
         res.send({
-             'creator': '@Franky',
-             'link': shortUrl,
-             'host': config.webhost,
-             'short': doc.id
+             'link': shortUrl
               });
       } else {
         var newUrl = Url({

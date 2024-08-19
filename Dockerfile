@@ -1,22 +1,23 @@
-# Dockerfile
-
-# Set base image
+# Gunakan base image dari Railway
 FROM ghcr.io/railwayapp/nixpacks:ubuntu-1722297819
 
-# Set working directory
-WORKDIR /app/
+# Install Node.js dan npm
+RUN apt-get update && apt-get install -y nodejs npm
 
-# Copy package.json and package-lock.json (if available)
+# Set working directory
+WORKDIR /app
+
+# Salin file package.json dan package-lock.json (jika ada)
 COPY package*.json ./
 
-# Install dependencies
+# Instal dependensi
 RUN npm install
 
-# Copy the rest of your application code
+# Salin sisa kode aplikasi
 COPY . .
 
 # Expose port
 EXPOSE 8080
 
-# Command to run your application
+# Command untuk menjalankan aplikasi
 CMD ["node", "app.js"]

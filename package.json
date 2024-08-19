@@ -1,17 +1,23 @@
 {
   "name": "short.frangky.me",
   "version": "1.0.0",
-  "description": "shorten",
+  "description": "A URL shortener service.",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "echo \"No test specified\" && exit 0",
+    "dev": "nodemon app.js" // Tambahkan ini untuk pengembangan dengan nodemon
   },
   "author": "Franky",
+  "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.1",
     "express": "^4.18.2",
     "link-check": "^5.0.0",
     "mongoose": "^6.7.1",
     "shortid": "^2.2.17"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20" // Tambahkan ini untuk pengembangan otomatis
   }
 }

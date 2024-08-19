@@ -8,6 +8,8 @@ var urlSchema = new Schema({
   created_at: Date
 });
 
+console.log(urlSchema)
+
 var Url = mongoose.model('Url', urlSchema);
 
 module.exports = Url;
